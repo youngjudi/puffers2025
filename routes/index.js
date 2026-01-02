@@ -5,6 +5,7 @@ var User = require('../models/user').User;
 router.get('/', function(req, res, next) {
     res.render('index', { title: 'Express',  counter:req.session.counter });
 });
+
 /* GET login/registration page. */
 router.get('/logreg', function(req, res, next) {
  res.render('logreg',{title: 'Вход'});
@@ -34,5 +35,7 @@ router.post('/logreg', async function(req, res, next) {
      }
   }  
 });
+
+
 
 module.exports = router;
