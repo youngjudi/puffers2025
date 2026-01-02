@@ -32,6 +32,12 @@ app.use(session({
  store: MongoStore.create({mongoUrl: 'mongodb://localhost/puffers2025'})
 }))
 
+app.use(function(req,res,next){
+ req.session.counter = req.session.counter + 1 || 1
+ next()
+ })
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/puffers', indexPuffers);
